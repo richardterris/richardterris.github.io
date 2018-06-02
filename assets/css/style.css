@@ -474,6 +474,7 @@ body {
 	background-size: cover;
 	z-index: 1;
 	background-repeat: no-repeat;
+	background-position-x: 75%!important;
 }
 
 .overlay:after {
@@ -869,6 +870,15 @@ body {
 
 .services-item i {
 	margin-bottom: 20px;
+}
+
+.services-item ul {
+	font-size: 16px;
+}
+
+.services-item.skills-variant ul {
+	margin: 10px 0 0 0;
+	padding-left: 20px;
 }
 
 /* 10. HIRE
