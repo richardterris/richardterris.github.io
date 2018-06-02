@@ -872,6 +872,15 @@ body {
 	margin-bottom: 20px;
 }
 
+.services-item ul {
+	font-size: 16px;
+}
+
+.services-item.skills-variant ul {
+	margin: 10px 0 0 0;
+	padding-left: 20px;
+}
+
 /* 10. HIRE
 =================================================*/
 
