@@ -1,0 +1,60 @@
+Hi, I’m Richard
+I'm a seasoned contract software developer working on the .NET framework. I have extensive experience of the full software development lifecycle, building content managed websites, custom software applications and 3rd party integrations.
+I love writing clean, extensible, maintainable code. I particularly enjoy writing simple code to solve complex problems for the end user. At the moment I really enjoy the work I’m doing with Azure, particularly Functions, Microservices with Service Fabric, as well as exploring the other great features that Azure has such as table storage, search, and plugins like Redis Cache. It’s exciting stuff!
+When I'm not working I’m usually either playing/recording music, walking my dog on the hills or taking photos. If I can combine 2 or more of these things at once then I'm extremely happy. 50
+50
+Projects completed
+50,000
+Cups of tea consumed
+40
+Happy clients
+
+
+My Skills
+C#
+I’m a skilled C# developer, with extensive knowledge of the dot net framework and some experience with dot net core.
+
+SQL Server
+Data storage is a must for most software, and I work almost exclusively with SQL Server.
+I have experience using SQL Server with ADO.NET and stored procedures, Micro ORMs, and Entity Framework. Often it isn't possible to choose if you’re working on an existing system, but if I have a choice I would use an ORM like Dapper. It's quick, lightweight, and easy to use. It's even better now it supports async.
+
+REST Services (writing and consuming)
+With so many distributed systems and with data coming from so many different sources, it makes great sense to expose data via APIs so that your client application can be anything. It also means that many client apps can make use of the data.
+
+I have extensive experience in both creating RESTful services and consuming 3rd party services.
+
+ASP.NET MVC
+While I’ve worked with some web forms and even classic ASP applications, the MVC pattern is my preference when creating web applications.
+
+MVC suits the stateless nature of the web perfectly, and it's easy to create well-structured web applications using this pattern.
+
+Microservices with Azure Service Fabric
+Microservices are a great way of creating distributed systems, with each small component running as its own service and communicating with other services as part of the overall application. Service Fabric is Azure's way of hosting these in such a way that the scaling of the services and distribution of these is managed across various virtual machines, giving you scalability and robustness so that your application is self-healing.
+
+I’m currently working on an enterprise level Microservices project for a global company, Aggreko.
+
+Azure Functions
+Azure functions are individual program methods that live in the cloud and scale automatically. They can be used to communicate with other functions or APIs to make up a whole application or just parts of an application that you wish to run in the background.
+
+I’ve been working with Azure functions as part of Aggreko, and I’ve also completely ported a personal project from Web API to Azure Functions.
+
+Services
+Software Application Development
+Come to me for clean, simple, maintainable and future-proof software.
+
+Cloud
+I have extensive experience with Azure Microservices in Service Fabric and Azure Functions.
+
+REST Services
+Whether you need some REST services to be built or consumed, I have you covered.
+
+Content Management Systems
+I’ve worked extensively with Umbraco CMS, including extension and customisation.
+
+Consultancy
+I have experience of the full software development lifecycle, from requirements gathering to software delivery. I’m also used to working in Agile teams. If you want to chat about your needs without any obligation, please feel free to contact me.
+
+Want to hire me?
+I'm a contractor, which means I'm usually booked to work with a company. I'm currently working for Aggreko until mid-October, but if you think I can help you with any of the above then please feel free to contact me.
+
+
