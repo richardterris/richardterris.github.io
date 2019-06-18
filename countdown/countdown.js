@@ -1,28 +1,123 @@
-function makeTimer() {
+/**
+ * jCountdown
+ *
+ * JS
+ *
+ * @url https://codepen.io/wolf-w/pen/QNGXom/
+ * @author Wolf Wortmann <http://elementcode.de> / <wolf@wolfgang-m.de>
+ * @copyright (c) Copyright 2016 Wolf Wortmann <http://elementcode.de> / <wolf@wolfgang-m.de>
+ * @license Feel free to use, modify and redistribute this code. But keep this license AND copyright notice.
+ */
+;(function($) {
+	var jCountdown = {
+		countdowns: [],
 
-	//		var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");
-		var endTime = new Date("20 August 2019 14:30:00 GMT+01:00");
-			endTime = (Date.parse(endTime) / 1000);
+		init: function(){
+			$('[data-countdown]').each(function(){
+				var $this = $(this),
+						data = {
+							self: $this,
+							target: $this.data('countdown')
+						};
+				$.extend(data, jCountdown.getUnits($this));
+				data.biggestUnit = jCountdown.getBiggestUnit(data.unitNames);
 
-			var now = new Date();
-			now = (Date.parse(now) / 1000);
+				jCountdown.countdowns.push(data);
+			});
+			jCountdown.startCountdowns();
+		},
 
-			var timeLeft = endTime - now;
+		getUnits: function($countdown){
+			var unitNames = [],
+					unitFields = {};
+			$('[data-countdown-unit]', $countdown).each(function(){
+				var $this = $(this),
+						name = $this.data('countdown-unit');
+				unitNames.push(name);
+				unitFields[name] = $this;
+			})
 
-			var days = Math.floor(timeLeft / 86400);
-			var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
-			var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
-			var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+			return {'unitNames': unitNames, 'unitFields': unitFields};
+		},
+		getBiggestUnit: function(units){
+			var lookup = {//use steps of 10 for later sub units
+						seconds: 10,
+						minutes: 20,
+						hours: 30,
+						days: 40,
+						weeks: 50,
+						months: 60,
+						years: 70
+					},
+					list = [];
+			units.forEach(function(unit){
+				list.push(lookup[unit]);
+			});
 
-			if (hours < "10") { hours = "0" + hours; }
-			if (minutes < "10") { minutes = "0" + minutes; }
-			if (seconds < "10") { seconds = "0" + seconds; }
+			return Math.max.apply(null, list);
+		},
 
-			$("#days").html(days + "<span>Days</span>");
-			$("#hours").html(hours + "<span>Hours</span>");
-			$("#minutes").html(minutes + "<span>Minutes</span>");
-			$("#seconds").html(seconds + "<span>Seconds</span>");
+		startCountdowns: function(){
+			jCountdown.countdowns.forEach(function(countdown, key){
+				if(jCountdown.updateCountdown(countdown)){
+					jCountdown.countdowns[key].interval = setInterval(function(){
+						if(!jCountdown.updateCountdown(countdown)){
+							clearInterval(countdown.interval);
+						}
+					}, 1000);
+				}
+			})
+		},
+		updateCountdown: function(countdown){
+			var remaining = jCountdown.timeRemaining(countdown);
+			if(remaining.total > 0){
+				countdown.unitNames.forEach(function(name){
+					countdown.unitFields[name].text(remaining[name]);
+				})
 
+				return true;
+			}
+			else{
+				return false;
+			}
+		},
+		timeRemaining: function(countdown){
+			var difference = Date.parse(countdown.target) - Date.parse(new Date()),
+					data = {
+						total: difference
+					};
+
+			if(countdown.unitNames.indexOf('seconds')+1){
+				data.seconds = Math.floor(difference / 1000);
+				if(countdown.biggestUnit > 10){data.seconds = Math.floor(data.seconds % 60)}
+			}
+			if(countdown.unitNames.indexOf('minutes')+1){
+				data.minutes = Math.floor(difference / 1000 / 60);
+				if(countdown.biggestUnit > 20){data.minutes = Math.floor(data.minutes % 60)}
+			}
+			if(countdown.unitNames.indexOf('hours')+1){
+				data.hours = Math.floor(difference / (1000 * 60 * 60));
+				if(countdown.biggestUnit > 30){data.hours = Math.floor(data.hours % 24)}
+			}
+			if(countdown.unitNames.indexOf('days')+1){
+				data.days = Math.floor(difference / (1000 * 60 * 60 * 24));
+				if(countdown.biggestUnit > 40){data.days = Math.floor(data.days % 7)}
+			}
+			if(countdown.unitNames.indexOf('weeks')+1){
+				data.weeks = Math.floor(difference / (1000 * 60 * 60 * 24 * 7));
+				if(countdown.biggestUnit > 50){data.weeks = Math.floor(data.weeks % 4.35)}
+			}
+			if(countdown.unitNames.indexOf('months')+1){
+				data.months = Math.floor(difference / (1000 * 60 * 60 * 24 * 7 * 4.35));
+				if(countdown.biggestUnit > 60){data.months = Math.floor(data.months % 12)}
+			}
+			if(countdown.unitNames.indexOf('years')+1){
+				data.years = Math.floor(difference / (1000 * 60 * 60 * 24 * 7 * 4.35 * 12));
+			}
+
+			return data;
+		}
 	}
 
-	setInterval(function() { makeTimer(); }, 1000);
+	$(document).ready(jCountdown.init);
+})(jQuery);

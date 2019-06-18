@@ -1,7 +1,14 @@
-
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,200,200italic,300,300italic,900,700italic,700,600italic,600,400italic);
-
-body {
+/**
+ * jCountdown
+ *
+ * CSS
+ *
+ * @url https://codepen.io/wolf-w/pen/QNGXom/
+ * @author Wolf Wortmann <http://elementcode.de> / <wolf@wolfgang-m.de>
+ * @copyright (c) Copyright 2016 Wolf Wortmann <http://elementcode.de> / <wolf@wolfgang-m.de>
+ * @license Feel free to use, modify and redistribute this code. But keep this license AND copyright notice.
+ */
+ body {
   font-family: 'Titillium Web', cursive;
   width: 800px;
   margin: 0 auto;
@@ -11,32 +18,37 @@ body {
   font-weight: 100;
 }
 
-div {
-  display: inline-block;
-  line-height: 1;
-  padding: 20px;
-  font-size: 40px;
+[data-countdown],
+data-countdown *{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
+[data-countdown]{
+	display: flex;
+	justify-content: space-around;
 
-span {
-  display: block;
-  font-size: 20px;
-  color: white;
+	min-height: 100px;
+	width: 550px;
+	max-width: 90%;
+	font-family: Lato, Arial, sans-serif;
+	color: rgb(40,50,50);
+	background-color: rgb(255,255,255);
+	border-radius: 5px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
-
-#days {
-  font-size: 100px;
-  color: #db4844;
+[data-countdown] > div{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-#hours {
-  font-size: 100px;
-  color: #f07c22;
+[data-countdown] > div > time{
+	display: block;
+	font-size: 30px;
+	font-weight: 700;
 }
-#minutes {
-  font-size: 100px;
-  color: #f6da74;
-}
-#seconds {
-  font-size: 50px;
-  color: #abcd58;
+[data-countdown] > div > span{
+	color: rgb(119,119,119);
+	font-size: 12px;
 }
