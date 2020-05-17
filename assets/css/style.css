@@ -35,11 +35,11 @@ font-family: 'Lato', sans-serif;
 /* 01. TYPOGRAPHY
 =================================================*/
 
-@media only screen and (max-width : 500px) {
+@media only screen and (max-width : 600px) {
   .home-bg 
   { 
-  	height: 500px !important;
-  	width: 500px !important;
+  	height: 600px !important;
+  	width: 600px !important;
   }
 }
 
