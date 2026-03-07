@@ -577,9 +577,11 @@
     @media (max-width: 900px) {
       nav { padding: 1.5rem 2rem; }
       .nav-links { display: none; }
-      #home { grid-template-columns: 1fr; }
-      .hero-left { padding: 7rem 2rem 4rem; }
-      .hero-right { display: none; }
+      #home { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-right { display: block; height: 280px; }
+      .hero-logo-wrap { width: 220px; height: 220px; }
+      .hero-number { display: none; }
       section { padding: 5rem 2rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .expertise-grid { grid-template-columns: 1fr; }
